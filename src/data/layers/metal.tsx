@@ -499,7 +499,7 @@ const layer = createLayer(id, function (this: BaseLayer) {
         cost() {
             let v = new Decimal(this.amount.value);
             v = Decimal.pow(0.95, paper.books.metalBook.totalAmount.value).times(v);
-            let cost = Decimal.pow(1.15, v).times(10);
+            let cost = Decimal.pow(1.15, v).times(5);
             if (management.elfTraining.metalElfTraining.milestones[4].earned.value) {
                 cost = Decimal.div(cost, Decimal.add(oil.depth.value, 1).sqrt());
             }
@@ -515,7 +515,7 @@ const layer = createLayer(id, function (this: BaseLayer) {
             if (management.elfTraining.metalElfTraining.milestones[4].earned.value) {
                 x = Decimal.mul(x, Decimal.add(oil.depth.value, 1).sqrt());
             }
-            let v = Decimal.div(x, 10).log(1.15);
+            let v = Decimal.div(x, 5).log(1.15);
             v = v.div(Decimal.pow(0.95, paper.books.metalBook.totalAmount.value));
             return Decimal.isNaN(v) ? Decimal.dZero : v.floor().max(0);
         },
