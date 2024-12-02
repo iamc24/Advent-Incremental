@@ -412,12 +412,12 @@ const layer = createLayer(id, function (this: BaseLayer) {
             enabled: autoPlantUpgrade1.bought
         })),
         createAdditiveModifier(() => ({
-            addend: () => Decimal.div(autoPlantingBuyable1.amount.value, 2),
+            addend: () => autoPlantingBuyable1.amount.value,
             description: "Generic Planters",
             enabled: researchUpgrade2.bought
         })),
         createAdditiveModifier(() => ({
-            addend: () => Decimal.div(workshop.foundationProgress.value, 10).floor(),
+            addend: () => Decimal.div(workshop.foundationProgress.value, 5).floor(),
             description: "20% Foundation Completed",
             enabled: workshop.milestones.autoPlantMilestone1.earned
         })),
